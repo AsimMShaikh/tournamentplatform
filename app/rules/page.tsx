@@ -7,36 +7,47 @@ export const metadata = {
 export default function RulesPage() {
   return (
     <main className="min-h-screen bg-white">
-      <div className="max-w-2xl mx-auto px-4 pt-12 pb-20">
 
-        {/* Back */}
-        <Link href="/" className="text-sm text-gray-400 hover:text-black transition-colors">
-          ← Back
-        </Link>
+      {/* Dark hero header */}
+      <div className="bg-gray-950 px-4 pt-10 pb-10">
+        <div className="max-w-2xl mx-auto">
+          <Link href="/" className="text-sm text-gray-500 hover:text-orange-400 transition-colors">
+            ← Back
+          </Link>
 
-        {/* Header */}
-        <div className="mt-8 text-center">
-          <p className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-2">
-            Sports · Community · Experiences
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">VYBE Social</h1>
-          <p className="text-lg text-gray-500 mt-2">Bring Your Own Team — Tournament Rules & Format</p>
+          <div className="mt-6 text-center">
+            <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-2">
+              Sports · Community · Experiences
+            </p>
+            <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
+              <span className="text-orange-500">VYBE</span>{' '}
+              <span className="text-white">Social</span>
+            </h1>
+            <p className="text-gray-400 mt-2">Bring Your Own Team — Tournament Rules & Format</p>
+          </div>
+
+          {/* Stats bar */}
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { value: '8', label: 'Teams' },
+              { value: '8', label: 'Players / Team' },
+              { value: '≤ 30.0', label: 'Cumulative DUPR' },
+              { value: '₹70,000', label: 'Prize Pool' },
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                className={`rounded-xl p-4 text-center ${i === 0 ? 'bg-orange-500' : 'bg-gray-800'}`}
+              >
+                <p className={`text-xl font-bold ${i === 0 ? 'text-white' : 'text-orange-400'}`}>{s.value}</p>
+                <p className={`text-xs mt-0.5 ${i === 0 ? 'text-orange-100' : 'text-gray-400'}`}>{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        {/* Stats bar */}
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {[
-            { value: '8', label: 'Teams' },
-            { value: '8', label: 'Players / Team' },
-            { value: '≤ 30.0', label: 'Cumulative DUPR' },
-            { value: '₹70,000', label: 'Prize Pool' },
-          ].map((s) => (
-            <div key={s.label} className="bg-gray-50 rounded-xl p-4 text-center">
-              <p className="text-xl font-bold">{s.value}</p>
-              <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
-            </div>
-          ))}
-        </div>
+      {/* Content */}
+      <div className="max-w-2xl mx-auto px-4 pb-20">
 
         {/* Section 1 */}
         <Section title="1. Team Combination & Player Registration">
@@ -78,7 +89,7 @@ export default function RulesPage() {
             />
           </div>
 
-          <div className="mt-5 bg-gray-50 rounded-xl px-5 py-4 text-sm font-semibold text-gray-700 text-center tracking-wide">
+          <div className="mt-5 bg-orange-500 rounded-xl px-5 py-4 text-sm font-semibold text-white text-center tracking-wide">
             MATCH POINTS: 2 + 2 + 2 + 3 = 9 POINTS PER TIE
           </div>
         </Section>
@@ -136,8 +147,10 @@ export default function RulesPage() {
         </Section>
 
         {/* Footer CTA */}
-        <div className="mt-10 bg-black text-white rounded-xl px-6 py-5 text-center text-sm font-semibold tracking-widest uppercase">
-          Pick your players. Create your strategy. Take the prize.
+        <div className="mt-10 bg-gray-950 rounded-xl px-6 py-5 text-center text-sm font-semibold tracking-widest uppercase">
+          <span className="text-orange-500">Pick your players. </span>
+          <span className="text-white">Create your strategy. </span>
+          <span className="text-orange-400">Take the prize.</span>
         </div>
 
       </div>
@@ -159,7 +172,7 @@ function Rules({ items }: { items: string[] }) {
     <ol className="space-y-3">
       {items.map((item, i) => (
         <li key={i} className="flex gap-3 text-sm text-gray-600">
-          <span className="font-semibold text-gray-900 shrink-0">{i + 1}.</span>
+          <span className="font-semibold text-orange-500 shrink-0">{i + 1}.</span>
           <span>{item}</span>
         </li>
       ))}
@@ -170,7 +183,7 @@ function Rules({ items }: { items: string[] }) {
 function FixtureTable({ rows }: { rows: { fixture: string; matchup: string }[] }) {
   return (
     <div className="rounded-xl overflow-hidden border border-gray-100">
-      <div className="grid grid-cols-2 bg-gray-50 px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+      <div className="grid grid-cols-2 bg-gray-900 px-4 py-2 text-xs font-semibold text-orange-400 uppercase tracking-wide">
         <span>Fixture</span>
         <span>Match-up</span>
       </div>

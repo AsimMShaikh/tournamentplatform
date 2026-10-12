@@ -29,60 +29,65 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="max-w-2xl mx-auto px-4 pt-20 pb-12 text-center">
-        <p className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-3">
-          Sports · Community · Experiences
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">VYBE Social</h1>
-        <p className="text-xl text-gray-500 mt-3">
-          {config?.name ?? 'Bring Your Own Team Tournament'}
-        </p>
-        <p className="text-gray-400 mt-2">{eventDate}</p>
+      <section className="bg-gray-950 px-4 pt-20 pb-14">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-3">
+            Sports · Community · Experiences
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
+            <span className="text-orange-500">VYBE</span>{' '}
+            <span className="text-white">Social</span>
+          </h1>
+          <p className="text-gray-400 mt-3">
+            {config?.name ?? 'Bring Your Own Team Tournament'}
+          </p>
+          <p className="text-gray-500 mt-1 text-sm">{eventDate}</p>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          {registrationOpen ? (
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {registrationOpen ? (
+              <Link
+                href="/auth/login"
+                className="bg-orange-500 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors"
+              >
+                Sign in to manage your team
+              </Link>
+            ) : (
+              <span className="bg-gray-800 text-gray-500 px-6 py-3 rounded-lg text-sm font-medium">
+                Registration closed
+              </span>
+            )}
             <Link
-              href="/auth/login"
-              className="bg-black text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+              href="/rules"
+              className="text-sm text-gray-400 hover:text-orange-400 transition-colors"
             >
-              Sign in to manage your team
+              View rules & eligibility →
             </Link>
-          ) : (
-            <span className="bg-gray-100 text-gray-500 px-6 py-3 rounded-lg text-sm font-medium">
-              Registration closed
-            </span>
-          )}
-          <Link
-            href="/rules"
-            className="text-sm text-gray-500 hover:text-black transition-colors"
-          >
-            View rules & eligibility →
-          </Link>
+          </div>
         </div>
       </section>
 
       {/* Info cards */}
-      <section className="max-w-2xl mx-auto px-4 pb-16">
+      <section className="max-w-2xl mx-auto px-4 py-12 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-gray-50 rounded-xl p-5 text-center">
-            <p className="text-3xl font-bold">{config?.max_teams ?? 8}</p>
-            <p className="text-sm text-gray-500 mt-1">Teams maximum</p>
+          <div className="bg-orange-500 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-white">{config?.max_teams ?? 8}</p>
+            <p className="text-sm text-orange-100 mt-1">Teams maximum</p>
           </div>
-          <div className="bg-gray-50 rounded-xl p-5 text-center">
-            <p className="text-3xl font-bold">{teamFee}</p>
-            <p className="text-sm text-gray-500 mt-1">Per team</p>
+          <div className="bg-gray-900 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-orange-400">{teamFee}</p>
+            <p className="text-sm text-gray-400 mt-1">Per team</p>
           </div>
-          <div className="bg-gray-50 rounded-xl p-5 text-center">
-            <p className="text-3xl font-bold">{playerFee}</p>
-            <p className="text-sm text-gray-500 mt-1">Per player</p>
+          <div className="bg-gray-900 rounded-xl p-5 text-center">
+            <p className="text-3xl font-bold text-orange-400">{playerFee}</p>
+            <p className="text-sm text-gray-400 mt-1">Per player</p>
           </div>
         </div>
 
-        <div className="mt-6 bg-gray-50 rounded-xl p-5 text-sm text-gray-500 space-y-1.5">
-          <p>• Maximum 8 players per team</p>
-          <p>• Cumulative DUPR cap of 30.0 per team</p>
-          <p>• Payment is UPI — screenshots reviewed manually</p>
-          <p>• Team slot confirmed only after payment approval</p>
+        <div className="mt-4 bg-gray-900 rounded-xl p-5 text-sm space-y-2">
+          <p className="text-gray-300"><span className="text-orange-500 mr-2">•</span>Maximum 8 players per team</p>
+          <p className="text-gray-300"><span className="text-orange-500 mr-2">•</span>Cumulative DUPR cap of 30.0 per team</p>
+          <p className="text-gray-300"><span className="text-orange-500 mr-2">•</span>Payment is UPI — screenshots reviewed manually</p>
+          <p className="text-gray-300"><span className="text-orange-500 mr-2">•</span>Team slot confirmed only after payment approval</p>
         </div>
       </section>
     </main>

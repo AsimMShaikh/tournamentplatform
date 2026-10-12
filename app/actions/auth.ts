@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { headers } from 'next/headers'
 
 function buildBaseUrl(host: string | null): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL
   const h = host ?? 'localhost:3000'
   const proto = h.startsWith('localhost') || h.startsWith('127.') ? 'http' : 'https'
   return `${proto}://${h}`

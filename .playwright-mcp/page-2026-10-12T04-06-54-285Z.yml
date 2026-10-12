@@ -1,0 +1,9 @@
+- main [ref=f6e2]:
+  - generic [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - heading "VYBE Social" [level=1] [ref=f6e5]
+      - paragraph [ref=f6e6]: Sign in to manage your team
+    - generic [ref=f6e8]:
+      - generic [ref=f6e9]: Email address
+      - textbox "you@example.com" [active] [ref=f6e10]
+      - button "Send sign-in link" [ref=f6e11] [cursor=pointer]

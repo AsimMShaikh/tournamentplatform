@@ -1,0 +1,13 @@
+- main [ref=f5e2]:
+  - generic [ref=f5e3]:
+    - generic [ref=f5e4]:
+      - heading "VYBE Admin" [level=1] [ref=f5e5]
+      - paragraph [ref=f5e6]: Tournament administration
+    - generic [ref=f5e8]:
+      - generic [ref=f5e9]:
+        - generic [ref=f5e10]: Email
+        - textbox [active] [ref=f5e11]
+      - generic [ref=f5e12]:
+        - generic [ref=f5e13]: Password
+        - textbox [ref=f5e14]
+      - button "Sign in" [ref=f5e15] [cursor=pointer]
